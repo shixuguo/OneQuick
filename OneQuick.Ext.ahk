@@ -73,8 +73,7 @@ $3\omega$
 ; send {Media_Play_Pause}
 ; return
 
-;~LShift UP::SwitchIME(0x04090409)
-;~RShift UP::SwitchIME(00000804)
+
 
 ; esc & f::run I:\���\����������\flowstate_�Զ����\index.html
 
@@ -125,17 +124,21 @@ printscreen::run C:\WINDOWS\system32\SnippingTool.exe
 esc & e:: run totalcmd64.exe 
 esc & z::SwitchIME(00000804)
 
-~LShift UP::
-    if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 500)
-        SwitchIME(0x04090409)
-return
+~LShift UP::SwitchIME(0x04090409)
+; ~RShift UP::SwitchIME(00000804)
+
+; ~LShift UP::
+;     if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 500)
+;         SwitchIME(0x04090409)
+; return
 
 ~RShift UP::
     if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 500)
 	{
 	SwitchIME(0x04090409)
-        SwitchIME(00000804)
+    SwitchIME(00000804)
 	}
+    Else SwitchIME(00000804)
 return
 
 
@@ -150,13 +153,13 @@ SendMessage,0x50,0,HKL,%ctl%,A
 }
 
 
-; esc & a::
+esc & a::
 ; run C:\Program Files (x86)\lspcieee_ahk-master\IME.ahk
-; run C:\Program Files (x86)\WindowPadX-master\windowpadx.ahk
+run C:\Users\shixuguo\Documents\GitHub\WindowPadX\windowpadx.ahk
 ; run C:\Program Files\Listary\Listary.exe
 ; run C:\Program Files (x86)\Microsoft Bing Dictionary\BingDict.exe
 ; run C:\Users\shixuguo\AppData\Local\Pomotodo\pomotodo.exe
-; return
+return
 
 
 
