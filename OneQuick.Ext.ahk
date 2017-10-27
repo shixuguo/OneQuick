@@ -176,8 +176,3 @@ class User_N808_SUGAR
 	}
 }
 
-
-
-
-
-
