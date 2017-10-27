@@ -173,3 +173,12 @@ class User_N808_SUGAR
 	}
 }
 
+
+class User_SUGAR
+{
+	Ini()
+	{
+
+	}
+}
+
