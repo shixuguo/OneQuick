@@ -63,9 +63,7 @@ $3\omega$
 
 
 ; ------------------待废弃的代码-------------------
-; esc::
-; send {esc}
-; return
+esc:: send {esc}
 
 ; esc & g::
 ; run C:\Users\shixuguo\Desktop\Groove.lnk
