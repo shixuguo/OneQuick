@@ -10,6 +10,8 @@ appskey::mbutton ;用于surface 没有鼠标中键的情况
 !Media_Prev::send !{F4} 
 ; 适用于thinkpad蓝牙键盘没有fn锁的情况
 
+esc:: send {esc}
+;这是必要的 否则单独按下esc不起作用
 
 ^b::
 {
@@ -63,7 +65,7 @@ $3\omega$
 
 
 ; ------------------待废弃的代码-------------------
-esc:: send {esc}
+
 
 ; esc & g::
 ; run C:\Users\shixuguo\Desktop\Groove.lnk
