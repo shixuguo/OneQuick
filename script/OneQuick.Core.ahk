@@ -150,7 +150,7 @@ class OneQuick
 	; when start
 	Show_StartInfo()
 	{
-		msg := lang("traytip_runing")
+		; msg := lang("traytip_runing")
 		auto_update := OneQuick.GetConfig("auto_update")
 		from_ver := OneQuick.GetConfig("update_from_version", "")
 		msgbox_from_version := OneQuick.GetConfig("msgbox_from_version")
