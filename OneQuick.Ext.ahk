@@ -124,7 +124,7 @@ printscreen::run C:\WINDOWS\system32\SnippingTool.exe
 esc & e:: run totalcmd64.exe 
 esc & z::SwitchIME(00000804)
 
-~LShift UP::
+~LCtrl UP::
     if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 500)
 	{
 	SwitchIME(0x04090409)
@@ -134,8 +134,8 @@ esc & z::SwitchIME(00000804)
 	if (A_ThisHotkey != A_PriorHotkey)
 	{
 		Send {A_ThisHotkey}
-		Send {Shift}
-		SwitchIME(0x04090409)
+		; Send {Shift}
+		; SwitchIME(0x04090409)
 	}
 return
 
@@ -146,7 +146,7 @@ return
 ;         SwitchIME(0x04090409)
 ; return
 
-~RShift UP::
+~RCtrl UP::
     if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 500)
 	{
 	SwitchIME(0x04090409)
