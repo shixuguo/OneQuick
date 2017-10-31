@@ -10,7 +10,7 @@ appskey::mbutton ;用于surface 没有鼠标中键的情况
 !Media_Prev::send !{F4} 
 ; 适用于thinkpad蓝牙键盘没有fn锁的情况
 
-esc:: send {esc}
+
 ;这是必要的 否则单独按下esc不起作用
 
 ^b::
@@ -96,6 +96,8 @@ esc & t::run C:\totalcmd\TOTALCMD64.exe
 
 esc & r::run C:\Windows\System32\Taskmgr.exe
 
+esc & o::run C:\Program Files (x86)\Microsoft Office\root\Office16\ONENOTE.exe
+
 esc & b::
 run C:\Program Files\JabRef\jabref.exe
 WinActivate 
@@ -124,6 +126,55 @@ printscreen::run C:\WINDOWS\system32\SnippingTool.exe
 esc & e:: run totalcmd64.exe 
 esc & z::SwitchIME(00000804)
 
+; esc:: 
+; {
+; 	send {esc}
+; 	SwitchIME(0x04090409)
+; 	Return
+; }
+
+
+
+
+; ====================================
+
+esc::
+if esc_presses > 0 ; SetTimer 已经启动, 所以我们记录键击.
+{
+    esc_presses += 1
+    return
+}
+; 否则, 这是新开始系列中的首次按下. 把次数设为 1 并启动
+; 计时器：
+esc_presses = 1
+SetTimer, KeyEsc, 400 ; 在 400 毫秒内等待更多的键击.
+return
+
+KeyEsc:
+SetTimer, KeyEsc, off
+if esc_presses = 1 ; 此键按下了一次.
+{
+	send {esc}
+}
+else if esc_presses = 2 ; 此键按下了两次.
+{
+	send {esc}
+	SwitchIME(0x04090409)
+}
+else if esc_presses > 2
+{
+    SwitchIME(00000804)
+}
+; 不论触发了上面的哪个动作, 都对 count 进行重置
+; 为下一个系列的按下做准备:
+esc_presses = 0
+return
+
+; =============================================
+
+
+; RShift UP::SwitchIME(00000804)
+
 ~LCtrl UP::
     if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 500)
 	{
@@ -146,13 +197,12 @@ return
 ;         SwitchIME(0x04090409)
 ; return
 
-~RCtrl UP::
+~RShift UP::
     if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 500)
 	{
 	SwitchIME(0x04090409)
     SwitchIME(00000804)
 	}
-    Else SwitchIME(00000804)
 return
 
 
