@@ -221,8 +221,6 @@ esc & a::
 ; run C:\Program Files (x86)\lspcieee_ahk-master\IME.ahk
 run C:\Users\shixuguo\Documents\GitHub\WindowPadX\windowpadx.ahk
 ; run C:\Program Files\Listary\Listary.exe
-; run C:\Program Files (x86)\Microsoft Bing Dictionary\BingDict.exe
-; run C:\Users\shixuguo\AppData\Local\Pomotodo\pomotodo.exe
 return
 
 
@@ -231,6 +229,7 @@ esc & q::run C:\Program Files (x86)\Tencent\WeChat\wechat.exe
 WinActivate 
 return
 
+esc & d::run C:\Users\shixuguo\Documents\GitHub\Ghoster\Ghoster.ahk
 
 class User_N808_SUGAR
 {
