@@ -1,4 +1,4 @@
-
+﻿
 
 ;--------------------- 快捷键转义--------------------
 appskey::mbutton ;用于surface 没有鼠标中键的情况
@@ -27,7 +27,7 @@ Loop
 }
 Loop
 {
-    StringReplace, clipboard,clipboard, %A_SPACE%%A_SPACE%, %A_SPACE%, UseErrorLevel ;�滻�����ո�Ϊһ���ո�
+    StringReplace, clipboard,clipboard, %A_SPACE%, , UseErrorLevel ;�滻�����ո�Ϊһ���ո�
     if ErrorLevel = 0  
         break
 }
@@ -92,7 +92,7 @@ WinActivate
 return
 
 
-esc & t::run C:\totalcmd\TOTALCMD64.exe
+esc & t::run c:\Users\shixuguo\Documents\GitHub\GTD\0.工作篮.adoc
 
 esc & r::run C:\Windows\System32\Taskmgr.exe
 
@@ -147,7 +147,7 @@ if esc_presses > 0 ; SetTimer 已经启动, 所以我们记录键击.
 ; 否则, 这是新开始系列中的首次按下. 把次数设为 1 并启动
 ; 计时器：
 esc_presses = 1
-SetTimer, KeyEsc, 400 ; 在 400 毫秒内等待更多的键击.
+SetTimer, KeyEsc, 300 ; 在 400 毫秒内等待更多的键击.
 return
 
 KeyEsc:
@@ -175,19 +175,12 @@ return
 
 ; RShift UP::SwitchIME(00000804)
 
-~LCtrl UP::
+~LShift UP::
     if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 500)
 	{
 	SwitchIME(0x04090409)
 	}
 
-
-	if (A_ThisHotkey != A_PriorHotkey)
-	{
-		Send {A_ThisHotkey}
-		; Send {Shift}
-		; SwitchIME(0x04090409)
-	}
 return
 
 ; ~RShift UP::SwitchIME(00000804)
