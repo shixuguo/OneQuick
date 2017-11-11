@@ -160,6 +160,7 @@ else if esc_presses = 2 ; 此键按下了两次.
 {
 	send {esc}
 	SwitchIME(0x04090409)
+	send {esc}
 }
 else if esc_presses > 2
 {
