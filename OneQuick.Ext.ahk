@@ -7,6 +7,8 @@ appskey::mbutton ;用于surface 没有鼠标中键的情况
 #d::send #m
 ; 增强win+d显示桌面的功能
 
++Backspace::send \
+
 !Media_Prev::send !{F4} 
 ; 适用于thinkpad蓝牙键盘没有fn锁的情况
 
@@ -155,6 +157,7 @@ SetTimer, KeyEsc, off
 if esc_presses = 1 ; 此键按下了一次.
 {
 	send {esc}
+	SwitchIME(0x04090409)
 }
 else if esc_presses = 2 ; 此键按下了两次.
 {
