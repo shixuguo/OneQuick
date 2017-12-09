@@ -30,26 +30,26 @@ appskey::mbutton ;用于surface 没有鼠标中键的情况
 
 
 
-^b::
-{
-clipboard=
-sleep,200
-send,^c
-clipwait,2
-Loop
-{
-    StringReplace, clipboard,clipboard, `r`n,%A_SPACE%, UseErrorLevel
-    if ErrorLevel = 0  ;ȫ���滻�꣬�˳�ѭ��
-        break
-}
-Loop
-{
-    StringReplace, clipboard,clipboard, %A_SPACE%, , UseErrorLevel ;�滻�����ո�Ϊһ���ո�
-    if ErrorLevel = 0  
-        break
-}
-return
-}
+; ^b::
+; {
+; clipboard=
+; sleep,200
+; send,^c
+; clipwait,2
+; Loop
+; {
+;     StringReplace, clipboard,clipboard, `r`n,%A_SPACE%, UseErrorLevel
+;     if ErrorLevel = 0  ;ȫ���滻�꣬�˳�ѭ��
+;         break
+; }
+; Loop
+; {
+;     StringReplace, clipboard,clipboard, %A_SPACE%, , UseErrorLevel ;�滻�����ո�Ϊһ���ո�
+;     if ErrorLevel = 0  
+;         break
+; }
+; return
+; }
 
 ; ^\::Send {、}
 
@@ -71,11 +71,16 @@ return
 ; $3\omega$
 ; )
 
+; ------------------------------------------------------------
+; esc & {F1}:: "C:\Program Files\Microsoft VS Code\Code.exe"
+; esc & F1:: run gvim C:\Users\shixuguo\Documents\Todotxt\@Inbox工作篮\Inbox工作篮.txt
+esc & F1:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Documents\Todotxt\@Inbox工作篮\Inbox工作篮.txt
+; esc & F2:: run gvim C:\Users\shixuguo\todo.txt
+esc & F2:: run "C:\Program Files (x86)\Hughesoft\todotxt.net\todotxt.exe"
+esc & F3:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Documents\Todotxt\todo.txt
 
 
-
-
-
+; ------------------------------------------------------------
 
 
 ; ------------------待废弃的代码-------------------
