@@ -6,6 +6,15 @@ SwitchIME(0x04090409)
 return
 #IfWinActive
 
+
+
+#IfWinActive ahk_exe wechat.exe
+~LControl UP::
+	if !InStr(A_Priorkey,"LControl")
+	return
+	SwitchIME(0x04090409)
+return
+#IfWinActive
 ;--------------------- 快捷键转义--------------------
 ; +Delete::Numpad1
 ; +End::Numpad2
@@ -74,10 +83,12 @@ appskey::mbutton ;用于surface 没有鼠标中键的情况
 ; ------------------------------------------------------------
 ; esc & {F1}:: "C:\Program Files\Microsoft VS Code\Code.exe"
 ; esc & F1:: run gvim C:\Users\shixuguo\Documents\Todotxt\@Inbox工作篮\Inbox工作篮.txt
-esc & F1:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Documents\Todotxt\@Inbox工作篮\Inbox工作篮.txt
 ; esc & F2:: run gvim C:\Users\shixuguo\todo.txt
+
+
+esc & F1:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Dropbox\Todotxt\@Inbox工作篮\Inbox工作篮.txt
 esc & F2:: run "C:\Program Files (x86)\Hughesoft\todotxt.net\todotxt.exe"
-esc & F3:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Documents\Todotxt\todo.txt
+esc & F3:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Dropbox\Todotxt\todo.txt
 
 
 ; ------------------------------------------------------------
@@ -251,13 +262,9 @@ return
 return
 
 SwitchIME(dwLayout){
-    
-HKL:=DllCall("LoadKeyboardLayout", Str, dwLayout, UInt, 1)
-    
-ControlGetFocus,ctl,A
-    
-SendMessage,0x50,0,HKL,%ctl%,A
-
+	HKL:=DllCall("LoadKeyboardLayout", Str, dwLayout, UInt, 1)
+	ControlGetFocus,ctl,A
+	SendMessage,0x50,0,HKL,%ctl%,A
 }
 
 
