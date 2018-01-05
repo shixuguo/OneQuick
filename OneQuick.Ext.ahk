@@ -15,6 +15,7 @@ return
 	SwitchIME(0x04090409)
 return
 #IfWinActive
+
 ;--------------------- 快捷键转义--------------------
 ; +Delete::Numpad1
 ; +End::Numpad2
@@ -245,14 +246,14 @@ return
 return
 
 
-~LControl UP::
-	if !InStr(A_Priorkey,"LControl")
-	return
+; ~LControl UP::
+; 	if !InStr(A_Priorkey,"LControl")
+; 	return
 
-	send {esc}
-	send {esc}
-	SwitchIME(0x04090409)
-return
+; 	send {esc}
+; 	send {esc}
+; 	SwitchIME(0x04090409)
+; return
 
 ~LShift UP::
 	if !InStr(A_Priorkey,"LShift")

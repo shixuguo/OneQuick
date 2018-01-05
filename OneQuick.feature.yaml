@@ -70,7 +70,7 @@ clipboard:
     netease_music: http://music.163.com/#/search/m/?s=%s&type=1
     youtube: https://www.youtube.com/results?search_query=%s
     taobao : https://s.taobao.com/search?q=%s
-    GoogleScholar : https://xue.glgoo.net/scholar?hl=zh-CN&q=%s&btnG=&lr=
+    GoogleScholar : https://scholar.google.com/scholar?q=%s
     BYR : http://bt.byr.cn/torrents.php?secocat=&cat=&incldead=0&spstate=0&inclbookmarked=0&search_area=0&search_mode=0&search=%s
     manmanbuy : http://tool.manmanbuy.com/historyLowest.aspx?url=%s
     duokan : http://www.duokan.com/search/%s
