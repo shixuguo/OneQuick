@@ -1,4 +1,4 @@
-﻿;whatever
+﻿;whatever1111
 #IfWinActive ahk_exe Code.exe
 
 \::
