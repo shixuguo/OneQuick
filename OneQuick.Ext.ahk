@@ -1,11 +1,27 @@
-﻿
+﻿;whatever
 #IfWinActive ahk_exe Code.exe
-esc::
-send {esc}
+
+\::
+send {\}
 SwitchIME(0x04090409)
 return
-#IfWinActive
 
+dollar_press=0
+$::
+if dollar_press = 0
+{
+	send {$}
+	SwitchIME(0x04090409)
+	dollar_press =1
+}
+else
+{
+	send {$}
+	SwitchIME(00000804)
+	dollar_press =0
+}
+return
+#IfWinActive
 
 
 #IfWinActive ahk_exe wechat.exe
@@ -16,6 +32,11 @@ return
 return
 #IfWinActive
 
+~esc UP::
+	if !InStr(A_Priorkey,"esc")
+	return
+	SwitchIME(0x04090409)
+return
 ;--------------------- 快捷键转义--------------------
 ; +Delete::Numpad1
 ; +End::Numpad2
@@ -30,13 +51,12 @@ return
 appskey::mbutton ;用于surface 没有鼠标中键的情况
 
 #w::send +#m
-#d::send #m
+#d::run explorer C:\Users\shixuguo\Desktop
 ; 增强win+d显示桌面的功能
 
 ; ::---::- [ ]  
 
-!Media_Prev::send !{F4} 
-; 适用于thinkpad蓝牙键盘没有fn锁的情况
+
 
 
 
@@ -67,10 +87,10 @@ appskey::mbutton ;用于surface 没有鼠标中键的情况
 ; ::ahk::autohotkey
 ; ::tc::thermal conductivity
 ; ::thr::thermal resistance
-; ::wmk::
-; (
-; W\cdot m^{-1}K^{-1}
-; )
+::wmk::
+(
+W\cdot m^{-1}K^{-1}
+)
 ; ::ttm::
 ; (
 ; T-type method
@@ -87,9 +107,9 @@ appskey::mbutton ;用于surface 没有鼠标中键的情况
 ; esc & F2:: run gvim C:\Users\shixuguo\todo.txt
 
 
-esc & F1:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Dropbox\Todotxt\@Inbox工作篮\Inbox工作篮.txt
+esc & F1:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Dropbox\Todotxt\todo.code-workspace
 esc & F2:: run "C:\Program Files (x86)\Hughesoft\todotxt.net\todotxt.exe"
-esc & F3:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Dropbox\Todotxt\todo.txt
+esc & F3:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Documents\GitHub\main.code-workspace
 
 
 ; ------------------------------------------------------------
@@ -203,10 +223,10 @@ printscreen::run C:\WINDOWS\system32\SnippingTool.exe
 esc & e:: run totalcmd64.exe 
 ; esc & z::SwitchIME(00000804)
 
-esc::
-send {esc}
-send {esc}
-return
+; esc::
+; send {esc}
+; send {esc}
+; return
 
 
 
