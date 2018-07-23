@@ -37,6 +37,11 @@ return
 	return
 	SwitchIME(0x04090409)
 return
+
++Backspace::
+send {Shift Down}{Home}{Shift Up}
+send {Backspace}
+return
 ;--------------------- 快捷键转义--------------------
 ; +Delete::Numpad1
 ; +End::Numpad2
@@ -107,9 +112,9 @@ W\cdot m^{-1}K^{-1}
 ; esc & F2:: run gvim C:\Users\shixuguo\todo.txt
 
 
-esc & F1:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Dropbox\Todotxt\todo.code-workspace
-esc & F2:: run "C:\Program Files (x86)\Hughesoft\todotxt.net\todotxt.exe"
-esc & F3:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Documents\GitHub\main.code-workspace
+Capslock & F1:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Dropbox\Todotxt\todo.code-workspace
+Capslock  & F2:: run "C:\Program Files (x86)\Hughesoft\todotxt.net\todotxt.exe"
+Capslock  & F3:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Documents\GitHub\main.code-workspace
 
 
 ; ------------------------------------------------------------
@@ -171,56 +176,62 @@ return
 
 
 ; ----------------------快捷启动程序-----------------------
+Capslock  & c::
+send {Capslock }
+send {c}
+return
 
-esc & l::run C:\Program Files (x86)\TeXstudio\texstudio.exe
+Capslock  & l::run C:\Program Files (x86)\TeXstudio\texstudio.exe
 WinActivate 
 return
 
 
-esc & t::run c:\Users\shixuguo\Documents\GitHub\GTD\0.工作篮.adoc
+Capslock  & t::run c:\Users\shixuguo\Documents\GitHub\GTD\0.工作篮.adoc
 
-esc & r::run C:\Windows\System32\Taskmgr.exe
+Capslock  & r::run C:\Windows\System32\Taskmgr.exe
 
-esc & o::run C:\Program Files (x86)\Microsoft Office\root\Office16\ONENOTE.exe
+Capslock  & o::run C:\Program Files (x86)\Microsoft Office\root\Office16\ONENOTE.exe
 
-esc & b::
+Capslock  & b::
 run C:\Program Files\JabRef\jabref.exe
 WinActivate 
 return
 
-esc & s::Run calc.exe
+Capslock  & s::Run calc.exe
 
-esc & p::Run powerpnt.exe
+Capslock  & p::Run powerpnt.exe
 WinActivate 
 return
 
-esc & w::Run winword.exe
+Capslock  & w::Run winword.exe
 WinActivate 
 return
 
 ~Alt UP::
     if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 500)
 	{
-	run C:\Program Files (x86)\Microsoft Bing Dictionary\BingDict.exe
+	run C:\Users\shixuguo\AppData\Local\youdao\dict\Application\YoudaoDict.exe
 	}
 return
 
-esc & a::
+Capslock  & a::
 ; run C:\Program Files (x86)\lspcieee_ahk-master\IME.ahk
 run C:\Users\shixuguo\Documents\GitHub\WindowPadX\windowpadx.ahk
 ; run C:\Program Files\Listary\Listary.exe
 return
 
-esc & q::run C:\Program Files (x86)\Tencent\WeChat\wechat.exe
+Capslock  & q::run C:\Program Files (x86)\Tencent\WeChat\wechat.exe
 WinActivate 
 return
 
-esc & d::run C:\Users\shixuguo\Documents\GitHub\Ghoster\Ghoster.ahk
+Capslock  & d::run C:\Users\shixuguo\Documents\GitHub\Ghoster\Ghoster.ahk
 
 printscreen::run C:\WINDOWS\system32\SnippingTool.exe
 
+Capslock  & x::run C:\Program Files\Microvirt\MEmu\MEmuConsole.exe
+
 ; -------------------快捷切换输入法
-esc & e:: run totalcmd64.exe 
+Capslock  & e:: run totalcmd64.exe 
 ; esc & z::SwitchIME(00000804)
 
 ; esc::
