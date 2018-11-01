@@ -1,42 +1,140 @@
 ﻿;whatever1111
 #IfWinActive ahk_exe Code.exe
 
-\::
-send {\}
-SwitchIME(0x04090409)
-return
-
-dollar_press=0
-$::
-if dollar_press = 0
-{
-	send {$}
-	SwitchIME(0x04090409)
-	dollar_press =1
-}
-else
-{
-	send {$}
-	SwitchIME(00000804)
-	dollar_press =0
-}
-return
 #IfWinActive
+; \:: ;用于python写注释
+; send {\}
+; SwitchIME(0x04090409)
+; return
 
+; dollar_press=0
+; $::
+; if dollar_press = 0
+; {
+; 	send {$}
+; 	SwitchIME(0x04090409)
+; 	dollar_press =1
+; }
+; else
+; {
+; 	send {$}
+; 	SwitchIME(00000804)
+; 	dollar_press =0
+; }
+; return
 
-#IfWinActive ahk_exe wechat.exe
-~LControl UP::
-	if !InStr(A_Priorkey,"LControl")
-	return
-	SwitchIME(0x04090409)
+~, UP::
+    if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 1000)
+	{
+	send {Backspace}
+	send {Backspace}
+	send {，}
+	}
 return
-#IfWinActive
-
-~esc UP::
-	if !InStr(A_Priorkey,"esc")
-	return
-	SwitchIME(0x04090409)
+~. UP::
+    if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 1000)
+	{
+	send {Backspace}
+	send {Backspace}
+	send {。}
+	}
 return
+~? UP::
+    if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 1000)
+	{
+	send {Backspace}
+	send {Backspace}
+	send {？}
+	}
+return
+~: UP::
+    if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 1000)
+	{
+	send {Backspace}
+	send {Backspace}
+	send {：}
+	}
+return
+~; UP::
+    if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 1000)
+	{
+	send {Backspace}
+	send {Backspace}
+	send {；}
+	}
+return
+~< UP::
+    if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 1000)
+	{
+	send {Backspace}
+	send {Backspace}
+	send {《}
+	}
+return
+~> UP::
+    if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 1000)
+	{
+	send {Backspace}
+	send {Backspace}
+	send {》}
+	}
+return
+~/ UP::
+    if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 1000)
+	{
+	send {Backspace}
+	send {Backspace}
+	send {、}
+	}
+return
+~^ UP::
+    if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 1000)
+	{
+	send {Backspace}
+	send {Backspace}
+	send {…}
+	}
+return
+~! UP::
+    if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 1000)
+	{
+	send {Backspace}
+	send {Backspace}
+	send {！}
+	}
+return
+~( UP::
+    if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 1000)
+	{
+	send {Backspace}
+	send {Backspace}
+	send {（}
+	}
+return
+~) UP::
+    if (A_ThisHotkey = A_PriorHotkey && A_TimeSincePriorHotkey < 1000)
+	{
+	send {Backspace}
+	send {Backspace}
+	send {）}
+	}
+return
+
+
+
+; #IfWinActive ahk_exe wechat.exe
+; ~LControl UP::
+; 	if !InStr(A_Priorkey,"LControl")
+; 	return
+; 	SwitchIME(0x04090409)
+; return
+; #IfWinActive
+
+; ~esc UP::
+; 	if !InStr(A_Priorkey,"esc")
+; 	return
+; 	SwitchIME(0x04090409)
+; return
 
 +Backspace::
 send {Shift Down}{Home}{Shift Up}
@@ -112,9 +210,11 @@ W\cdot m^{-1}K^{-1}
 ; esc & F2:: run gvim C:\Users\shixuguo\todo.txt
 
 
-Capslock & F1:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Dropbox\Todotxt\todo.code-workspace
-Capslock  & F2:: run "C:\Program Files (x86)\Hughesoft\todotxt.net\todotxt.exe"
-Capslock  & F3:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixuguo\Documents\GitHub\main.code-workspace
+Capslock & F1:: run,C:\Users\shixuguo\AppData\Local\Programs\Microsoft VS Code\code.exe C:\Users\shixuguo\Desktop\timelogging\0.main.code-workspace
+Capslock  & F2:: run,C:\Users\shixuguo\AppData\Local\Programs\Microsoft VS Code\code.exe C:\Users\shixuguo\Dropbox\todo\todo.code-workspace
+Capslock  & F3:: run,C:\Users\shixuguo\Desktop\手动记账
+;Capslock  & F4:: run,C:\Users\shixuguo\AppData\Local\Programs\Microsoft VS Code\code.exe C:\Users\shixuguo\Dropbox\writing-edge\main.code-workspace
+
 
 
 ; ------------------------------------------------------------
@@ -170,16 +270,13 @@ Capslock  & F3:: run,C:\Program Files\Microsoft VS Code\code.exe C:\Users\shixug
 
 capslock::
 SetCapsLockState ,OFF
+send {esc}
 return
 
 
 
 
 ; ----------------------快捷启动程序-----------------------
-Capslock  & c::
-send {Capslock }
-send {c}
-return
 
 Capslock  & l::run C:\Program Files (x86)\TeXstudio\texstudio.exe
 WinActivate 
